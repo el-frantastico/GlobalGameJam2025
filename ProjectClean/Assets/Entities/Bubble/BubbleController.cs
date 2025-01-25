@@ -52,6 +52,9 @@ public class BubbleController : MonoBehaviour
             return;
         }
 
+        Rigidbody rigidBody = capturedGameObject.GetComponent<Rigidbody>();
+        rigidBody.useGravity = true;
+
         StopCoroutine(floatCoroutine);
         StopCoroutine(escapeCoroutine);
 
@@ -71,6 +74,9 @@ public class BubbleController : MonoBehaviour
 
     IEnumerator FloatCoroutine()
     {
+        Rigidbody rigidBody = capturedGameObject.GetComponent<Rigidbody>();
+        rigidBody.useGravity = false;
+
         while (true)
         {
             float distance = floatSpeed * Time.deltaTime;
@@ -81,6 +87,7 @@ public class BubbleController : MonoBehaviour
 
     IEnumerator EscapeCoroutine()
     {
+        
         yield return new WaitForSeconds(escapeTime);
         Escape();
     }

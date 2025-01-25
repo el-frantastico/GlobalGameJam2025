@@ -123,5 +123,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifetime: 5
   travelSpeed: 10
-  floatSpeed: 10
-  escapeTime: 3
+  floatSpeed: 3
+  escapeTime: 2
