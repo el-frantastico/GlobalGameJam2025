@@ -10,27 +10,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c2565f6c046b3c941b7f56fc301200a4, type: 3}
       propertyPath: m_LocalScale.x
-      value: 20
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c2565f6c046b3c941b7f56fc301200a4, type: 3}
       propertyPath: m_LocalScale.y
-      value: 20
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c2565f6c046b3c941b7f56fc301200a4, type: 3}
       propertyPath: m_LocalScale.z
-      value: 20
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c2565f6c046b3c941b7f56fc301200a4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.419229
+      value: 3.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c2565f6c046b3c941b7f56fc301200a4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 34.89795
+      value: 35.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c2565f6c046b3c941b7f56fc301200a4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -97.00047
+      value: -98.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c2565f6c046b3c941b7f56fc301200a4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -63,7 +63,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: c2565f6c046b3c941b7f56fc301200a4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e2295e75c5e3ad8408bf2015a90f0863, type: 2}
+      objectReference: {fileID: 2100000, guid: deb1866f045742249917a41625649b74, type: 2}
     - target: {fileID: 919132149155446097, guid: c2565f6c046b3c941b7f56fc301200a4, type: 3}
       propertyPath: m_Name
       value: webcamScreen
@@ -71,26 +71,5 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c2565f6c046b3c941b7f56fc301200a4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 646823971162475387}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2565f6c046b3c941b7f56fc301200a4, type: 3}
---- !u!1 &7381169275527727594 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c2565f6c046b3c941b7f56fc301200a4, type: 3}
-  m_PrefabInstance: {fileID: 7687160266409555131}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &646823971162475387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7381169275527727594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7837476817f3ec4b8ed3210ab8f97c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _webCamMaterial: {fileID: 2100000, guid: e2295e75c5e3ad8408bf2015a90f0863, type: 2}
