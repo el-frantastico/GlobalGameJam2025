@@ -40,6 +40,8 @@ public class GunController : MonoBehaviour
             bubbleInstance.transform.rotation = bubbleSpawnTransform.rotation;
         }
 
+        
+
 
         StartCoroutine(FireCooldownCoroutine(fireCooldownTime));   
     }
