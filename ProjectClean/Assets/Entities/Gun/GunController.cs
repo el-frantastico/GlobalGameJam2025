@@ -14,12 +14,18 @@ public class GunController : MonoBehaviour
     [SerializeField]
     private GameObject bubbleGameObject;
 
+    [SerializeField]
+    private Transform _gunRotationTarget;
+
     void Update()
     {
         if (isFireable && Input.GetMouseButton(0))
         {
             SpawnBubble();
         }
+
+        Quaternion gunRotation = new Quaternion(transform.rotation.x, transform.rotation.y, -_gunRotationTarget.rotation.x, transform.rotation.w);
+        transform.rotation = gunRotation;
     }
 
     void SpawnBubble()
@@ -40,7 +46,7 @@ public class GunController : MonoBehaviour
             bubbleInstance.transform.rotation = bubbleSpawnTransform.rotation;
         }
 
-        
+        GameManager.Instance.PlayerScored(5);
 
 
         StartCoroutine(FireCooldownCoroutine(fireCooldownTime));   

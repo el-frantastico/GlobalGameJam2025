@@ -3,23 +3,21 @@ using TMPro;
 
 public class Score : MonoBehaviour
 {
-    public delegate void PlayerScoreIncrease(int score);
 
-    public event PlayerScoreIncrease PlayerScored;
 
     [SerializeField] private TextMeshProUGUI _scoreText;
 
     private int _currentScore = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private void Awake()
+    private void Start()
     {
-        PlayerScored += OnScoreIncrease;
+        GameManager.Instance.PlayerScoredEvent += OnScoreIncrease;
     }
 
     private void OnDisable()
     {
-        PlayerScored -= OnScoreIncrease;
+        GameManager.Instance.PlayerScoredEvent -= OnScoreIncrease;
     }
 
 
