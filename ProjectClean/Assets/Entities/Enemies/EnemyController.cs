@@ -17,13 +17,13 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        BubbleController bubbleController = other.GetComponent<BubbleController>();
+        //BubbleController bubbleController = other.GetComponent<BubbleController>();
 
-        if (bubbleController == null)
-        {
-            return;
-        }
+        //if (bubbleController == null)
+        //{
+        //    return;
+        //}
 
-        bubbleController.Capture(gameObject);
+        //bubbleController.Capture(gameObject);
     }
 }
