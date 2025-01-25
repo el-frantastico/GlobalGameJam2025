@@ -58,9 +58,21 @@ public class BubbleController : MonoBehaviour
         StopCoroutine(floatCoroutine);
         StopCoroutine(escapeCoroutine);
 
+        Pop(false);
+        
+    }
+
+    public void Pop(bool isEnemyDestroyed)
+    {
+        if (isEnemyDestroyed && capturedGameObject != null)
+        {
+            Destroy(capturedGameObject);
+        }
+
         capturedGameObject.transform.parent = null;
         Destroy(gameObject);
     }
+
 
     IEnumerator TravelCoroutine()
     {
