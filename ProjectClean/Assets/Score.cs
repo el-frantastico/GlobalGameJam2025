@@ -32,7 +32,4 @@ public class Score : MonoBehaviour
         _currentScore += score;
         _scoreText.text = _currentScore.ToString();
     }
-
-
-   
 }

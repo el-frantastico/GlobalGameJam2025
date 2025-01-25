@@ -46,8 +46,6 @@ public class GunController : MonoBehaviour
             bubbleInstance.transform.rotation = bubbleSpawnTransform.rotation;
         }
 
-        GameManager.Instance.PlayerScored(5);
-
 
         StartCoroutine(FireCooldownCoroutine(fireCooldownTime));   
     }
