@@ -25,7 +25,7 @@ public class GameManager: MonoBehaviour
 
     public void PlayerScored(int score)
     {
-        PlayerScoredEvent.Invoke(score);
+        PlayerScoredEvent?.Invoke(score);
     }
 
 }
