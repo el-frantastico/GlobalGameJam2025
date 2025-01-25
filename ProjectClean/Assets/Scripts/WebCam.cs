@@ -25,7 +25,6 @@ public class WebCam : MonoBehaviour
 
         _webCamTexture = new WebCamTexture(_webCamDevice.name);
         _webCamTexture.Play();
-        //_webCamMaterial.SetTexture("_MainTex", _webCamTexture);
         transform.GetComponent<Renderer>().material.mainTexture = _webCamTexture;
     }
 
