@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8120705628796443646}
   - component: {fileID: 8833829681593529847}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: DirtPlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4599774462301202088}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7106153, y: 0, z: 0, w: 0.7035808}
-  m_LocalPosition: {x: 0, y: 0.1, z: 13.8}
+  m_LocalPosition: {x: 0, y: 0.1, z: 395.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -227,7 +227,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0

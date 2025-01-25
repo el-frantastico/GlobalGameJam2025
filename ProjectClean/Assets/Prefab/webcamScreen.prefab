@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: e2295e75c5e3ad8408bf2015a90f0863, type: 2}
     - target: {fileID: 919132149155446097, guid: c2565f6c046b3c941b7f56fc301200a4, type: 3}
       propertyPath: m_Name
-      value: 'playerScreen '
+      value: webcamScreen
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -24,8 +24,6 @@ public class GunController : MonoBehaviour
             SpawnBubble();
         }
 
-        Quaternion gunRotation = new Quaternion(0f, transform.rotation.y, -_gunRotationTarget.rotation.x, transform.rotation.w);
-        transform.rotation = gunRotation;
     }
 
     void SpawnBubble()

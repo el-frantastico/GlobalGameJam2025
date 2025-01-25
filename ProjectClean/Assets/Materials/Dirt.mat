@@ -78,7 +78,7 @@ Material:
     - _Fresnel: -67.01
     - _Fresnel_Power: 46.23
     - _Opacity: 1.8
-    - _Power: -0.75
+    - _Power: -0.51
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SrcBlend: 5

@@ -32,6 +32,9 @@ namespace KinematicCharacterController.Examples
         public float RotationSharpness = 10000f;
         public bool RotateWithPhysicsMover = false;
 
+        [SerializeField]
+        private Transform _gunRotation;
+
         [Header("Obstruction")]
         public float ObstructionCheckRadius = 0.2f;
         public LayerMask ObstructionLayers = -1;
@@ -104,6 +107,7 @@ namespace KinematicCharacterController.Examples
                 _targetVerticalAngle = Mathf.Clamp(_targetVerticalAngle, MinVerticalAngle, MaxVerticalAngle);
                 Quaternion verticalRot = Quaternion.Euler(_targetVerticalAngle, 0, 0);
                 Quaternion targetRotation = Quaternion.Slerp(Transform.rotation, planarRot * verticalRot, 1f - Mathf.Exp(-RotationSharpness * deltaTime));
+                Quaternion gunTargetRotation = planarRot * verticalRot;
 
                 // Apply rotation
                 Transform.rotation = targetRotation;
@@ -173,6 +177,7 @@ namespace KinematicCharacterController.Examples
 
                 // Apply position
                 Transform.position = targetPosition;
+                _gunRotation.rotation = gunTargetRotation;
             }
         }
     }
