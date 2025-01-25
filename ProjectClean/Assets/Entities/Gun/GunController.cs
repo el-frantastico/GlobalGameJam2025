@@ -1,10 +1,8 @@
 using System.Collections;
-using System.ComponentModel;
 using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
-    [SerializeField] // Serializing to show in Inspector for debugging. Don't want to make a PropertyDrawer
     private bool isFireable = true;
 
     [SerializeField]
