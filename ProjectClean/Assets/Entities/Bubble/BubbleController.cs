@@ -67,13 +67,15 @@ public class BubbleController : MonoBehaviour
                 else
                 {
                     Pop();
-
                     Vector3 forceDirection = Vector3.Normalize(sphereCollider.transform.position - characterController.transform.position);
-
                     capturedRigidbody.AddForce(popForce * forceDirection);
                 }
+
+                return;
             }
         }
+
+        Pop();
     }
 
     public void Capture(GameObject capturedGameObject)
