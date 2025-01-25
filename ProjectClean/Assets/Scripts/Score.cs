@@ -13,6 +13,7 @@ public class Score : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.PlayerScoredEvent += OnScoreIncrease;
+        ResetScore();
     }
 
     private void OnDisable()
@@ -30,7 +31,10 @@ public class Score : MonoBehaviour
     public void OnScoreIncrease(int score)
     {
         _currentScore += score;
-        _scoreText.text = _currentScore.ToString();
+        if(_scoreText != null)
+        {
+            _scoreText.text = _currentScore.ToString();
+        }
     }
 
 
