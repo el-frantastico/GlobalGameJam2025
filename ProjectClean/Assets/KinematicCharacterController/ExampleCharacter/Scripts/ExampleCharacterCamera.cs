@@ -108,13 +108,13 @@ namespace KinematicCharacterController.Examples
                 // Apply rotation
                 Transform.rotation = targetRotation;
 
-                // Process distance input
-                if (_distanceIsObstructed && Mathf.Abs(zoomInput) > 0f)
-                {
-                    TargetDistance = _currentDistance;
-                }
-                TargetDistance += zoomInput * DistanceMovementSpeed;
-                TargetDistance = Mathf.Clamp(TargetDistance, MinDistance, MaxDistance);
+                //// Process distance input
+                //if (_distanceIsObstructed && Mathf.Abs(zoomInput) > 0f)
+                //{
+                //    TargetDistance = _currentDistance;
+                //}
+                //TargetDistance += zoomInput * DistanceMovementSpeed;
+                //TargetDistance = Mathf.Clamp(TargetDistance, MinDistance, MaxDistance);
 
                 // Find the smoothed follow position
                 _currentFollowPosition = Vector3.Lerp(_currentFollowPosition, FollowTransform.position, 1f - Mathf.Exp(-FollowingSharpness * deltaTime));
