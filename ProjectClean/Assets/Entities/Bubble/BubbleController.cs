@@ -16,15 +16,19 @@ public class BubbleController : MonoBehaviour
     private float floatSpeed = 5;
     [SerializeField]
     private float escapeTime = 3;
+    [SerializeField]
+    private Vector3 captureScale = new Vector3(3, 3, 3);
    
     private Coroutine travelCoroutine;
     private Coroutine floatCoroutine;
     private Coroutine escapeCoroutine;
     private GameObject capturedGameObject;
+    private SphereCollider sphereCollider;
 
     private void Start()
     {
         travelCoroutine = StartCoroutine(TravelCoroutine());
+        sphereCollider = GetComponent<SphereCollider>();
     }
 
     public void Capture(GameObject capturedGameObject)
@@ -38,8 +42,19 @@ public class BubbleController : MonoBehaviour
             return;
         }
 
-        transform.position = capturedGameObject.transform.position;
+        CapsuleCollider capsuleCollider = capturedGameObject.GetComponentInChildren<CapsuleCollider>();
+        if (capsuleCollider == null)
+        {
+            transform.position = capturedGameObject.transform.position;
+        }
+        else
+        {
+            transform.position = capsuleCollider.transform.position;
+        }
+
+        transform.localScale = captureScale;
         capturedGameObject.transform.parent = transform;
+
         StopCoroutine(travelCoroutine);
         floatCoroutine = StartCoroutine(FloatCoroutine());
         escapeCoroutine = StartCoroutine(EscapeCoroutine());
@@ -72,7 +87,6 @@ public class BubbleController : MonoBehaviour
         capturedGameObject.transform.parent = null;
         Destroy(gameObject);
     }
-
 
     IEnumerator TravelCoroutine()
     {
