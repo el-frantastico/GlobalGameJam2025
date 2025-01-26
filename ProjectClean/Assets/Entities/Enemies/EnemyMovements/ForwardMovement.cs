@@ -6,6 +6,7 @@ public class ForwardMovement : MonoBehaviour
 
     [SerializeField]
     private float speed;
+    private float startingSpeed;
 
     private new Rigidbody rigidbody;
 
@@ -16,8 +17,13 @@ public class ForwardMovement : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody>();
         hitObjects = new HashSet<GameObject>();
+        startingSpeed = speed;
     }
 
+    public void Reset()
+    {
+        speed = startingSpeed;
+    }
     private void FixedUpdate()
     {
         rigidbody.linearVelocity = new Vector3(speed, 0, 0);

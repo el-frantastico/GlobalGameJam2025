@@ -4,16 +4,22 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public Rigidbody rigidbody;
-
+    Vector3 startPos;
+    Quaternion startRot;
+    [SerializeField]
+    ForwardMovement _forwardMovement;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+        startPos = transform.position;
+        startRot = transform.rotation;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Reset()
     {
-        
+        transform.position = startPos;
+        transform.rotation = startRot;
+        _forwardMovement.Reset();
     }
 }
