@@ -7,11 +7,20 @@ public class GameManager: MonoBehaviour
 
     public delegate void PlayerScoreIncrease(int score);
     public delegate void PlayerDamaged(float oldHealth, float newHealth);
+    public delegate void PlayerHealed(float healingAmmount);
+    public delegate void GenericEvent();
 
 
     public event PlayerScoreIncrease PlayerScoredEvent;
+
     public event PlayerDamaged PlayerDamagedEvent;
     public event PlayerDamaged PlayerHealthValues;
+
+    public event PlayerHealed PlayerHealedEvent;
+
+    public event GenericEvent PlayerDeadEvent;
+
+
 
     private void Awake()
     {
@@ -42,5 +51,15 @@ public class GameManager: MonoBehaviour
     {
         Debug.Log("Update playerhealth");
         PlayerHealthValues?.Invoke(maxHealth, currentHealth);
+    }
+
+    public void InvokePlayerHeal(float ammount)
+    {
+        PlayerHealedEvent?.Invoke(ammount);
+    }
+
+    public void InvokePlayerDeath()
+    {
+        PlayerDeadEvent?.Invoke();
     }
 }
