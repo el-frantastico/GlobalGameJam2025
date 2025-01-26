@@ -1,19 +1,26 @@
 using UnityEngine;
-
+using KinematicCharacterController.Examples;
+using KinematicCharacterController;
 public class PlayerReset : MonoBehaviour
 {
     Vector3 startPos;
     Quaternion startRot;
+    [SerializeField] ExampleCharacterController controller;
+    [SerializeField] KinematicCharacterMotor motor;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        startPos = transform.position;
-        startRot = transform.rotation;
+        if(startPos != null)
+        {
+            startPos = transform.position;
+            startRot = transform.rotation;
+        }
     }
 
     public void Reset()
     {
-        transform.position = startPos;
-        transform.rotation = startRot;
+        motor.SetPositionAndRotation(startPos, startRot);
+        controller.enabled = true;
+        motor.enabled = true;
     }
 }

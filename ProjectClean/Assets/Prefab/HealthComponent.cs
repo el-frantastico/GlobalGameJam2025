@@ -30,8 +30,21 @@ public class HealthComponent : MonoBehaviour
         GameManager.Instance.PlayerHealedEvent -= Heal;
     }
 
+    private void Update()
+    {
+        if(transform.position.y < -104 && CurrentHealth > 0)
+        {
+            Kill();
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.transform.gameObject.CompareTag("KillPlane"))
+        {
+            Kill();
+            return;
+        }
         EnemyController enemyController = collision.gameObject.GetComponentInChildren<EnemyController>();
         if (enemyController == null)
         {
@@ -58,16 +71,25 @@ public class HealthComponent : MonoBehaviour
         GameManager.Instance.PlayerDamage(oldHealth, CurrentHealth);
         GameManager.Instance.PlayerHealthValue(MaxHealth, CurrentHealth);
 
+        CurrentHealth = Mathf.Clamp(CurrentHealth, 0, MaxHealth);
         if(CurrentHealth <= 0)
         {
             GameManager.Instance.InvokePlayerDeath();
         }
     }
 
+    private void Kill()
+    {
+        CurrentHealth = 0;
+        GameManager.Instance.PlayerHealthValue(MaxHealth, CurrentHealth);
+        GameManager.Instance.InvokePlayerDeath();
+    }
+
     private void Heal(float ammount)
     {
         CurrentHealth += ammount;
         Debug.Log("Healed");
+        CurrentHealth = Mathf.Clamp(CurrentHealth, 0, MaxHealth);
         GameManager.Instance.PlayerHealthValue(MaxHealth, CurrentHealth);
     }
 

@@ -80,6 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 4279783045372542024}
+  _forwardMovement: {fileID: 4732219808734796858}
 --- !u!54 &4279783045372542024
 Rigidbody:
   m_ObjectHideFlags: 0
