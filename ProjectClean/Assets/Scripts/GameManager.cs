@@ -11,6 +11,7 @@ public class GameManager: MonoBehaviour
 
     public event PlayerScoreIncrease PlayerScoredEvent;
     public event PlayerDamaged PlayerDamagedEvent;
+    public event PlayerDamaged PlayerHealthValues;
 
     private void Awake()
     {
@@ -37,4 +38,9 @@ public class GameManager: MonoBehaviour
         PlayerDamagedEvent?.Invoke(oldHealth, newHealth);
     }
 
+    public void PlayerHealthValue(float maxHealth, float currentHealth)
+    {
+        Debug.Log("Update playerhealth");
+        PlayerHealthValues?.Invoke(maxHealth, currentHealth);
+    }
 }

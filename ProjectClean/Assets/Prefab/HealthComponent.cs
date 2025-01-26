@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using KinematicCharacterController.Examples;
 public class HealthComponent : MonoBehaviour
 {
     private float CurrentHealth;
@@ -16,6 +16,8 @@ public class HealthComponent : MonoBehaviour
     [SerializeField]
     private Vector3 damageDirection = new Vector3(1, 1, 0);
 
+    [SerializeField]
+    ExampleCharacterController characterController;
     private void Start()
     {
         CurrentHealth = MaxHealth;
@@ -31,19 +33,23 @@ public class HealthComponent : MonoBehaviour
         }
 
         Vector3 forceDirection = damageDirection.normalized;
-        enemyController.rigidbody?.AddForce(damageForce * forceDirection);
+        enemyController.rigidbody?.AddForce(damageForce * 10 * forceDirection);
 
-        Vector3 forceDirectionMirrored = new Vector3(-forceDirection.x, forceDirection.y, 0);
-        rigidbody?.AddForce(damageForce * forceDirectionMirrored);
+        Vector3 playerForceDirection = (collision.transform.position - transform.position) + Vector3.up ;
+        playerForceDirection = new Vector3(-playerForceDirection.x, playerForceDirection.y, 0);
 
+        characterController.AddVelocity((playerForceDirection) * damageForce);
         Damage(1);
+        Debug.DrawLine(transform.position, (playerForceDirection) * damageForce, Color.red, 30);
     }
+
 
     private void Damage(float ammount)
     {
         float oldHealth = CurrentHealth;
         CurrentHealth -= 1f;
-
+        Debug.Log("Damage Taken");
         GameManager.Instance.PlayerDamage(oldHealth, CurrentHealth);
+        GameManager.Instance.PlayerHealthValue(MaxHealth, CurrentHealth);
     }
 }
