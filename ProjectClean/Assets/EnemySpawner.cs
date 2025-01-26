@@ -51,7 +51,7 @@ public class EnemySpawner : MonoBehaviour
         while(true)
         {
             //find spawn location
-            Vector3 spawnLocation = spawnPositions[UnityEngine.Random.Range(0, spawnPositions.Length+1)].position;
+            Vector3 spawnLocation = spawnPositions[UnityEngine.Random.Range(0, spawnPositions.Length)].position;
             Instantiate(enemyPrefab, spawnLocation, Quaternion.identity);
 
             yield return new WaitForSeconds(currentDelay);
