@@ -49,7 +49,7 @@ public class HealthComponent : MonoBehaviour
             Kill();
             return;
         }
-        EnemyController enemyController = collision.gameObject.GetComponentInChildren<EnemyController>();
+        EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
         if (enemyController == null)
         {
             return;

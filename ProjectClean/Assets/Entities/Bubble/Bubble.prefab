@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifetime: 5
   travelSpeed: 10
-  floatForce: {x: 0, y: 100, z: 0}
+  floatForce: {x: 0, y: 50, z: 0}
   escapeTime: 2.02
   captureScale: {x: 3, y: 3, z: 3}
   excludeWhileCaptureLayerMask:
