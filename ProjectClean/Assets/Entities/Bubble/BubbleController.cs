@@ -14,7 +14,7 @@ public class BubbleController : MonoBehaviour
 
     [Header("Capture Settings")]
     [SerializeField]
-    private Vector3 floatForce = new Vector3(0,1,0);
+    private Vector3 floatForce = new Vector3(0, 1, 0);
     [SerializeField]
     private float escapeTime = 3;
     [SerializeField]
@@ -35,7 +35,7 @@ public class BubbleController : MonoBehaviour
     private Rigidbody capturedRigidbody;
     private CapsuleCollider capturedCollider;
 
-    
+
 
     private void Start()
     {
@@ -78,8 +78,11 @@ public class BubbleController : MonoBehaviour
         {
             GameManager.Instance.InvokePlayerHeal(.25f);
         }
+    }
 
-        Pop();
+    public GameObject GetCapturedObject()
+    {
+        return capturedGameObject;
     }
 
     public void Capture(GameObject capturedGameObject)
