@@ -358,7 +358,7 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.5
+    x: 0
     y: 0
     width: 1
     height: 1
@@ -372,7 +372,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: a28b29f2fb8435a4bb06c4901cdc7603, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -492,6 +492,7 @@ GameObject:
   - component: {fileID: 7582480139530047197}
   - component: {fileID: 6014154755968383501}
   - component: {fileID: 3954927446873010179}
+  - component: {fileID: 5713616440131376752}
   m_Layer: 9
   m_Name: MainCharacter
   m_TagString: Untagged
@@ -561,7 +562,7 @@ MonoBehaviour:
   AirAccelerationSpeed: 30
   Drag: 0
   AllowJumpingWhenSliding: 1
-  JumpUpSpeed: 10
+  JumpUpSpeed: 15
   JumpScalableForwardSpeed: 0
   JumpPreGroundingGraceTime: 0.1
   JumpPostGroundingGraceTime: 0.1
@@ -670,6 +671,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b59163c7ad9dc64a9453fc302949f96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 3119774717854260365}
+  motor: {fileID: 3169445432704323528}
+--- !u!114 &5713616440131376752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6582156550143408721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8585e6fe9145b134b8ac4781d352c193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7016208405254200933

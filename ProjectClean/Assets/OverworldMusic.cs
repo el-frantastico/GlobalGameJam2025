@@ -60,8 +60,14 @@ public class OverworldMusic : MonoBehaviour
         {
             if (box == potentialBox.TrigggerBox)
             {
-                StopCoroutine(happyCoroutine);
-                StopCoroutine(darkCoroutine);
+                if(happyCoroutine != null)
+                {
+                    StopCoroutine(happyCoroutine);
+                }
+                if (darkCoroutine != null)
+                {
+                    StopCoroutine(darkCoroutine);
+                }
 
                 happyCoroutine = StartCoroutine(LerpVolume(happyAudioSource, potentialBox.HappyVolume, volumeChangeDuration));
                 darkCoroutine = StartCoroutine(LerpVolume(darkAudioSource, potentialBox.DarkVolume, volumeChangeDuration));

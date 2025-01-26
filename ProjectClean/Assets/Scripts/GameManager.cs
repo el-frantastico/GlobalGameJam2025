@@ -31,11 +31,14 @@ public class GameManager: MonoBehaviour
 
     [SerializeReference] GameObject[] EnabledOnMenu;
     [SerializeReference] GameObject[] DisabledOnMenu;
+    [SerializeReference] OverworldMusic OvereworldMusic;
     public Score _score;
     public HealthComponent _health;
     public PlayerReset _playerReset;
     public EnemyController[] _enemyReset;
 
+
+    private bool GameRanOnce = false;
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
@@ -80,6 +83,26 @@ public class GameManager: MonoBehaviour
 
     public void StartGame()
     {
+        if(GameRanOnce)
+        {
+            Restart();
+        }
+        GameRanOnce = true;
+        foreach (var item in GameObjectsOnStart)
+        {
+            item.SetActive(true);
+        }
+
+        foreach (var item in DisabledGameObjectsOnStart)
+        {
+            item.SetActive(false);
+        }
+
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void StartGameWithReset()
+    {
         Restart();
         foreach (var item in GameObjectsOnStart)
         {
@@ -96,6 +119,8 @@ public class GameManager: MonoBehaviour
 
     public void GameOver()
     {
+        OvereworldMusic.Reset();
+
         foreach (var item in EnabledOnDeath)
         {
             item.SetActive(true);
