@@ -31,12 +31,8 @@ public class BubbleController : MonoBehaviour
     private SphereCollider sphereCollider;
     private Rigidbody rigidBody;
 
-    private GameObject capturedGameObject;
-    private Rigidbody capturedRigidbody;
-    private CapsuleCollider capturedCollider;
-
-
-
+    private EnemyController capturedEnemy;
+    
     private void Start()
     {
         travelCoroutine = StartCoroutine(TravelCoroutine());
@@ -46,12 +42,12 @@ public class BubbleController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (capturedGameObject == null)
+        if (capturedEnemy == null)
         {
-            EnemyController enemyController = collision.gameObject.GetComponentInChildren<EnemyController>();
-            if (enemyController != null)
+            EnemyController enemyToCapture = collision.gameObject.GetComponentInChildren<EnemyController>();
+            if (enemyToCapture != null)
             {
-                Capture(collision.gameObject);
+                Capture(enemyToCapture);
                 return;
             }
         }
@@ -60,18 +56,7 @@ public class BubbleController : MonoBehaviour
             ExampleCharacterController characterController = collision.gameObject.GetComponentInChildren<ExampleCharacterController>();
             if (characterController != null)
             {
-                if (characterController.gameObject.transform.position.y > this.gameObject.transform.position.y)
-                {
-                    Pop(true);
-                }
-                else
-                {
-                    Pop();
-                    Vector3 forceDirection = Vector3.Normalize(sphereCollider.transform.position - characterController.transform.position);
-                    capturedRigidbody.AddForce(popForce * forceDirection);
-                }
-
-                return;
+                Pop(true);
             }
         }
         if (collision.transform.gameObject.CompareTag("heal"))
@@ -82,57 +67,50 @@ public class BubbleController : MonoBehaviour
 
     public GameObject GetCapturedObject()
     {
-        return capturedGameObject;
+        return capturedEnemy.gameObject;
     }
 
-    public void Capture(GameObject capturedGameObject)
+    public void Capture(EnemyController enemyToCapture)
     {
-        if (this.capturedGameObject == null)
+        if (this.capturedEnemy == null)
         {
-            capturedRigidbody = capturedGameObject.GetComponent<Rigidbody>();
-            this.capturedGameObject = capturedGameObject;
-            sphereCollider.excludeLayers = excludeWhileCaptureLayerMask;
-        }
-        else
-        {
-            return;
-        }
+            transform.localScale = captureScale;
 
-        capturedCollider = capturedGameObject.GetComponentInChildren<CapsuleCollider>();
-        if (capturedCollider == null)
-        {
-            transform.position = capturedGameObject.transform.position;
-        }
-        else
-        {
-            capturedCollider.enabled = false;
-            transform.position = capturedCollider.transform.position;
-        }
+            MeshRenderer render = enemyToCapture.gameObject.GetComponentInChildren<MeshRenderer>();
+            if (render == null)
+            {
+                transform.position = enemyToCapture.transform.position;
+            }
+            else
+            {
+                transform.position = render.transform.position;
+            }
 
-        transform.localScale = captureScale;
-        capturedRigidbody.isKinematic = true;
-        capturedGameObject.transform.parent = transform;
+            capturedEnemy = enemyToCapture;
+            capturedEnemy.Capture(gameObject);
 
-        StopCoroutine(travelCoroutine);
-        escapeCoroutine = StartCoroutine(EscapeCoroutine());
-        rigidBody.AddForce(floatForce);
+            StopCoroutine(travelCoroutine);
+            escapeCoroutine = StartCoroutine(EscapeCoroutine());
+            rigidBody.AddForce(floatForce);
+        }
     }
 
     public void Pop(bool isEnemyDestroyed = false)
     {
-        if (capturedGameObject)
+        if (capturedEnemy)
         {
-            if (isEnemyDestroyed)
+            EnemyController enemyController = capturedEnemy.GetComponentInChildren<EnemyController>();
+            if (enemyController != null)
             {
-                Destroy(capturedGameObject);
-            }
-            else
-            {
-                capturedRigidbody.isKinematic = false;
-                capturedRigidbody.useGravity = true;
-                capturedCollider.enabled = true;
-                capturedGameObject.transform.parent = null;
-            }
+                if (isEnemyDestroyed)
+                {
+                    Destroy(capturedEnemy);
+                }
+                else
+                {
+                    enemyController.Escape(); 
+                }
+            }   
         }
 
         Destroy(gameObject);
@@ -152,7 +130,7 @@ public class BubbleController : MonoBehaviour
     {
         
         yield return new WaitForSeconds(escapeTime);
-        if (capturedGameObject != null)
+        if (capturedEnemy != null)
         {
             Pop(false);
         }

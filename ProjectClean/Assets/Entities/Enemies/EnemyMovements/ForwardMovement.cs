@@ -9,7 +9,7 @@ public class ForwardMovement : MonoBehaviour
     private float startingSpeed;
 
     [SerializeField]
-    private bool _moving = true;
+    public bool _moving = true;
     private new Rigidbody rigidbody;
     HashSet<GameObject> hitObjects;
 
