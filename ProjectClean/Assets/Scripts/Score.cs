@@ -26,6 +26,7 @@ public class Score : MonoBehaviour
     public void ResetScore()
     {
         _scoreText.text = "0";
+        _currentScore = 0;
     }
 
     public void OnScoreIncrease(int score)

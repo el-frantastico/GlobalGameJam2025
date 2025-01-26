@@ -70,4 +70,10 @@ public class HealthComponent : MonoBehaviour
         Debug.Log("Healed");
         GameManager.Instance.PlayerHealthValue(MaxHealth, CurrentHealth);
     }
+
+    public void ResetHealth()
+    {
+        CurrentHealth = MaxHealth;
+        GameManager.Instance.PlayerHealthValue(1, 1);
+    }
 }

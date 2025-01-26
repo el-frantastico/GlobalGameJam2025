@@ -19,8 +19,22 @@ public class GameManager: MonoBehaviour
     public event PlayerHealed PlayerHealedEvent;
 
     public event GenericEvent PlayerDeadEvent;
+    public event GenericEvent StartGameEvent;
 
 
+
+    [SerializeReference] GameObject[] GameObjectsOnStart;
+    [SerializeReference] GameObject[] DisabledGameObjectsOnStart;
+
+    [SerializeReference] GameObject[] EnabledOnDeath;
+    [SerializeReference] GameObject[] DisabledOnDeath;
+
+    [SerializeReference] GameObject[] EnabledOnMenu;
+    [SerializeReference] GameObject[] DisabledOnMenu;
+    public Score _score;
+    public HealthComponent _health;
+    public PlayerReset _playerReset;
+    public EnemyController[] _enemyReset;
 
     private void Awake()
     {
@@ -61,5 +75,63 @@ public class GameManager: MonoBehaviour
     public void InvokePlayerDeath()
     {
         PlayerDeadEvent?.Invoke();
+        GameOver();
+    }
+
+    public void StartGame()
+    {
+        Restart();
+        foreach (var item in GameObjectsOnStart)
+        {
+            item.SetActive(true);
+        }
+
+        foreach (var item in DisabledGameObjectsOnStart)
+        {
+            item.SetActive(false);
+        }
+    }
+
+    public void GameOver()
+    {
+        foreach (var item in EnabledOnDeath)
+        {
+            item.SetActive(true);
+        }
+
+        foreach (var item in DisabledOnDeath)
+        {
+            item.SetActive(false);
+        }
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void Restart()
+    {
+        //Reset score
+        _score.ResetScore();
+        //Reset health
+        _health.ResetHealth();
+
+        //Reset player
+        _playerReset.Reset();
+        //Reset Enemies
+        foreach (var item in _enemyReset)
+        {
+            item.Reset();
+        }
+    }
+
+    public void OpenMenu()
+    {
+        foreach (var item in EnabledOnMenu)
+        {
+            item.SetActive(true);
+        }
+
+        foreach (var item in DisabledOnMenu)
+        {
+            item.SetActive(false);
+        }
     }
 }
