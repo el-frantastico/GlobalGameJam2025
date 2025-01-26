@@ -4,7 +4,7 @@ using TMPro;
 public class Score : MonoBehaviour
 {
 
-
+    [SerializeField] private GameObject _disableAfterStart;
     [SerializeField] private TextMeshProUGUI _scoreText;
 
     private int _currentScore = 0;
@@ -14,14 +14,8 @@ public class Score : MonoBehaviour
     {
         GameManager.Instance.PlayerScoredEvent += OnScoreIncrease;
         ResetScore();
+        _disableAfterStart.SetActive(false);
     }
-
-    private void OnDisable()
-    {
-        GameManager.Instance.PlayerScoredEvent -= OnScoreIncrease;
-    }
-
-
 
     public void ResetScore()
     {

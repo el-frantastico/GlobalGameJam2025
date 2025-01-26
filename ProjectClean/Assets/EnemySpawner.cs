@@ -14,6 +14,8 @@ public class EnemySpawner : MonoBehaviour
 
     public Transform[] spawnPositions;
 
+    public AudioSource _audioSound;
+
     private bool isSpawning = false;
     private void Awake()
     {
@@ -41,6 +43,7 @@ public class EnemySpawner : MonoBehaviour
             return;
         }
         isSpawning = true;
+        _audioSound.Play();
         StartCoroutine(SpawnEnemies());
     }
 

@@ -13,6 +13,8 @@ public class ForwardMovement : MonoBehaviour
     private new Rigidbody rigidbody;
     HashSet<GameObject> hitObjects;
 
+    [SerializeField] AudioSource _growl;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -50,6 +52,7 @@ public class ForwardMovement : MonoBehaviour
 
         hitObjects.Add(collision.gameObject);
         speed *= -1;
+        _growl.Play();
         transform.rotation = Quaternion.LookRotation(new Vector3(speed, 0,0));
     }
 
