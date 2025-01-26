@@ -105,7 +105,7 @@ public class BubbleController : MonoBehaviour
                 if (isEnemyDestroyed)
                 {
                     GameManager.Instance.PlayerScored(100);
-                    Destroy(capturedEnemy); 
+                    GetCapturedObject().SetActive(false);
                 }
                 else
                 {
