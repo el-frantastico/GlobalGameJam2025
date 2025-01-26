@@ -34,6 +34,8 @@ namespace KinematicCharacterController.Examples
 
         [SerializeField]
         private Transform _gunRotation;
+        [SerializeField]
+        private Vector3 _gunRotationOffset;
 
         [Header("Obstruction")]
         public float ObstructionCheckRadius = 0.2f;
@@ -177,7 +179,9 @@ namespace KinematicCharacterController.Examples
 
                 // Apply position
                 Transform.position = targetPosition;
-                _gunRotation.rotation = gunTargetRotation;
+
+                _gunRotation.rotation = Quaternion.Euler(gunTargetRotation.eulerAngles + _gunRotationOffset);
+                ;
             }
         }
     }
