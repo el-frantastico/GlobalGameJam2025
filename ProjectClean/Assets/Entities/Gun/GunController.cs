@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class GunController : MonoBehaviour
 {
@@ -17,13 +18,15 @@ public class GunController : MonoBehaviour
     [SerializeField]
     private Transform _gunRotationTarget;
 
+    [SerializeField]
+    private Transform _bubbleCharge;
+
     void Update()
     {
         if (isFireable && Input.GetMouseButton(0))
         {
             SpawnBubble();
         }
-
     }
 
     void SpawnBubble()
@@ -50,8 +53,20 @@ public class GunController : MonoBehaviour
 
     IEnumerator FireCooldownCoroutine(float fireCooldownTime)
     {
+        float elapsedTime = 0;
+        float waitTime = fireCooldownTime;
+        float currentVolume = 0;
+
         isFireable = false;
-        yield return new WaitForSeconds(fireCooldownTime);
+
+        while (elapsedTime < waitTime)
+        {
+            _bubbleCharge.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, elapsedTime / fireCooldownTime);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        yield return null;
+
         isFireable = true;
     }
 }
