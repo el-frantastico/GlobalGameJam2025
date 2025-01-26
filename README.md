@@ -8,4 +8,10 @@ Team Members:
 - Ryu (github.com/Ryuison-jpg)
 - Tim De Jong (github.com/bubblegum4317)
 
-Jam Theme: Unannounced
+Jam Theme: Bubbles
+
+Diversifiers Used
+- Outside the box
+- Old school
+- Meta
+- Single melody that evolves over time.
