@@ -387,7 +387,6 @@ namespace KinematicCharacterController.Examples
                     }
             }
         }
-
         /// <summary>
         /// (Called by KinematicCharacterMotor during its update cycle)
         /// This is called after the character has finished its movement update

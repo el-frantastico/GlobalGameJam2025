@@ -2686,4 +2686,5 @@ namespace KinematicCharacterController
             return nbHits;
         }
     }
+    
 }
