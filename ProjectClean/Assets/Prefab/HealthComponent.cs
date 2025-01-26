@@ -18,6 +18,8 @@ public class HealthComponent : MonoBehaviour
 
     [SerializeField]
     ExampleCharacterController characterController;
+
+    [SerializeField] AudioSource _grunt;
     private void Start()
     {
         CurrentHealth = MaxHealth;
@@ -71,6 +73,7 @@ public class HealthComponent : MonoBehaviour
     {
         float oldHealth = CurrentHealth;
         CurrentHealth -= 1f;
+        _grunt.Play();
         Debug.Log("Damage Taken");
         GameManager.Instance.PlayerDamage(oldHealth, CurrentHealth);
         GameManager.Instance.PlayerHealthValue(MaxHealth, CurrentHealth);
