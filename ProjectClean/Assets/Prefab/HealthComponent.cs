@@ -22,6 +22,12 @@ public class HealthComponent : MonoBehaviour
     {
         CurrentHealth = MaxHealth;
         rigidbody = GetComponentInChildren<Rigidbody>();
+        GameManager.Instance.PlayerHealedEvent += Heal;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.PlayerHealedEvent -= Heal;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -50,6 +56,18 @@ public class HealthComponent : MonoBehaviour
         CurrentHealth -= 1f;
         Debug.Log("Damage Taken");
         GameManager.Instance.PlayerDamage(oldHealth, CurrentHealth);
+        GameManager.Instance.PlayerHealthValue(MaxHealth, CurrentHealth);
+
+        if(CurrentHealth <= 0)
+        {
+            GameManager.Instance.InvokePlayerDeath();
+        }
+    }
+
+    private void Heal(float ammount)
+    {
+        CurrentHealth += ammount;
+        Debug.Log("Healed");
         GameManager.Instance.PlayerHealthValue(MaxHealth, CurrentHealth);
     }
 }
