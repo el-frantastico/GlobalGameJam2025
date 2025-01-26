@@ -120,6 +120,7 @@ public class GameManager: MonoBehaviour
     public void GameOver()
     {
         OvereworldMusic.Reset();
+        EnemySpawner.Instance.StopSpawning();
 
         foreach (var item in EnabledOnDeath)
         {
