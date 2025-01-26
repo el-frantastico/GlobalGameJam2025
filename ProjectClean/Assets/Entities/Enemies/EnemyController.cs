@@ -22,4 +22,13 @@ public class EnemyController : MonoBehaviour
         transform.rotation = startRot;
         _forwardMovement.Reset();
     }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        BubbleController bubbleController = GetComponent<BubbleController>();
+        if (bubbleController.GetCapturedObject() == this.gameObject)
+        {
+            bubbleController.Pop();
+        }
+    }
 }

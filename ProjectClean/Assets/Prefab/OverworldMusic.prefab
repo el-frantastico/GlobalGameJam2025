@@ -27,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 943211721303617577}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.83, y: -4.5668, z: 0}
-  m_LocalScale: {x: 10.78317, y: 10.132993, z: 38.07}
+  m_LocalPosition: {x: 67.0582, y: 1.3385, z: 0}
+  m_LocalScale: {x: 32.398853, y: 14.455728, z: 38.07}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2332262922777243553}
@@ -89,8 +89,8 @@ Transform:
   m_GameObject: {fileID: 4125427149997756834}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.8979, y: -4.5668, z: 0}
-  m_LocalScale: {x: 10.78317, y: 10.132993, z: 38.07}
+  m_LocalPosition: {x: 3.6, y: -4.5668, z: 0}
+  m_LocalScale: {x: 92.96, y: 10.132993, z: 38.07}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2332262922777243553}
@@ -159,6 +159,9 @@ Transform:
   - {fileID: 3034850029601155868}
   - {fileID: 813083042463235708}
   - {fileID: 526795033130601117}
+  - {fileID: 8807972058187346677}
+  - {fileID: 6578153468847775860}
+  - {fileID: 2085940252829998440}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1143088134361828968
@@ -180,12 +183,21 @@ MonoBehaviour:
   defaultDarkVolume: 0
   volumeAtBoxes:
   - TrigggerBox: {fileID: 4125427149997756834}
-    HappyVolume: 1
+    HappyVolume: 0.75
     DarkVolume: 0
   - TrigggerBox: {fileID: 943211721303617577}
+    HappyVolume: 1
+    DarkVolume: 0
+  - TrigggerBox: {fileID: 5852156855176911104}
+    HappyVolume: 0.75
+    DarkVolume: 0
+  - TrigggerBox: {fileID: 8589426435820946664}
+    HappyVolume: 0.75
+    DarkVolume: 0.25
+  - TrigggerBox: {fileID: 6239338407749391585}
     HappyVolume: 0.5
     DarkVolume: 0.5
-  - TrigggerBox: {fileID: 5852156855176911104}
+  - TrigggerBox: {fileID: 6427346984141488178}
     HappyVolume: 0
     DarkVolume: 1
 --- !u!82 &6767928557424718225
@@ -391,8 +403,8 @@ Transform:
   m_GameObject: {fileID: 5852156855176911104}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.98, y: -4.5668, z: 0}
-  m_LocalScale: {x: 10.78317, y: 10.132993, z: 38.07}
+  m_LocalPosition: {x: 91.9635, y: -4.5668, z: 0}
+  m_LocalScale: {x: 17.507637, y: 10.132993, z: 38.07}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2332262922777243553}
@@ -412,6 +424,192 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5852156855176911104}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &6239338407749391585
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6578153468847775860}
+  - component: {fileID: 6264934267469164326}
+  - component: {fileID: 8661967112753487104}
+  m_Layer: 0
+  m_Name: Cube (5)
+  m_TagString: AudioBox
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6578153468847775860
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6239338407749391585}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 112.6343, y: -46.8, z: 0}
+  m_LocalScale: {x: 14.282854, y: 10.132993, z: 38.07}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2332262922777243553}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &6264934267469164326
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6239338407749391585}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &8661967112753487104
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6239338407749391585}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &6427346984141488178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2085940252829998440}
+  - component: {fileID: 9030130404111648586}
+  - component: {fileID: 5548687794138978163}
+  m_Layer: 0
+  m_Name: Cube (6)
+  m_TagString: AudioBox
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2085940252829998440
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6427346984141488178}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 66.1499, y: -98.903, z: 0}
+  m_LocalScale: {x: 105.25582, y: 27.688595, z: 38.07}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2332262922777243553}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &9030130404111648586
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6427346984141488178}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &5548687794138978163
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6427346984141488178}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &8589426435820946664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8807972058187346677}
+  - component: {fileID: 9126211183571360207}
+  - component: {fileID: 7408156341984320967}
+  m_Layer: 0
+  m_Name: Cube (3)
+  m_TagString: AudioBox
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8807972058187346677
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8589426435820946664}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 112.6343, y: -4.5668, z: 0}
+  m_LocalScale: {x: 14.282854, y: 10.132993, z: 38.07}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2332262922777243553}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &9126211183571360207
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8589426435820946664}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &7408156341984320967
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8589426435820946664}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
