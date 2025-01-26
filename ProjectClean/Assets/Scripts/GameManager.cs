@@ -90,6 +90,8 @@ public class GameManager: MonoBehaviour
         {
             item.SetActive(false);
         }
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void GameOver()
@@ -118,6 +120,7 @@ public class GameManager: MonoBehaviour
         //Reset Enemies
         foreach (var item in _enemyReset)
         {
+            item.gameObject.SetActive(true);
             item.Reset();
         }
     }

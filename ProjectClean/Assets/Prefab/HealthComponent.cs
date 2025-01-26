@@ -58,6 +58,7 @@ public class HealthComponent : MonoBehaviour
         GameManager.Instance.PlayerDamage(oldHealth, CurrentHealth);
         GameManager.Instance.PlayerHealthValue(MaxHealth, CurrentHealth);
 
+        CurrentHealth = Mathf.Clamp(CurrentHealth, 0, MaxHealth);
         if(CurrentHealth <= 0)
         {
             GameManager.Instance.InvokePlayerDeath();
@@ -68,6 +69,7 @@ public class HealthComponent : MonoBehaviour
     {
         CurrentHealth += ammount;
         Debug.Log("Healed");
+        CurrentHealth = Mathf.Clamp(CurrentHealth, 0, MaxHealth);
         GameManager.Instance.PlayerHealthValue(MaxHealth, CurrentHealth);
     }
 
