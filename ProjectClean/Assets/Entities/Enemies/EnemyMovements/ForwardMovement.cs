@@ -35,6 +35,7 @@ public class ForwardMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+
         if (collision.gameObject.layer == 6) //Floor
         {
             if (!_moving)
@@ -49,6 +50,7 @@ public class ForwardMovement : MonoBehaviour
 
         hitObjects.Add(collision.gameObject);
         speed *= -1;
+        transform.rotation = Quaternion.LookRotation(new Vector3(speed, 0,0));
     }
 
     private void OnCollisionExit(Collision collision)
