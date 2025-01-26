@@ -61,7 +61,7 @@ public class BubbleController : MonoBehaviour
         }
         if (collision.transform.gameObject.CompareTag("heal"))
         {
-            GameManager.Instance.InvokePlayerHeal(.25f);
+            GameManager.Instance.InvokePlayerHeal(.5f);
         }
     }
 
