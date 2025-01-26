@@ -13,5 +13,7 @@ public class AudioTrigger : MonoBehaviour
         {
             OverworldMusic.Instance.EnterBox(other.gameObject);
         }
+
+
     }
 }

@@ -32,6 +32,10 @@ public class HealthComponent : MonoBehaviour
 
     private void Update()
     {
+        if(transform.position.y < -70 && transform.position.y > -80)
+        {
+            EnemySpawner.Instance.StartSpawning();
+        }
         if(transform.position.y < -104 && CurrentHealth > 0)
         {
             Kill();

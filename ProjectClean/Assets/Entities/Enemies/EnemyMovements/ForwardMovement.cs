@@ -8,8 +8,9 @@ public class ForwardMovement : MonoBehaviour
     private float speed;
     private float startingSpeed;
 
+    [SerializeField]
+    private bool _moving = true;
     private new Rigidbody rigidbody;
-
     HashSet<GameObject> hitObjects;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -26,13 +27,18 @@ public class ForwardMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        rigidbody.linearVelocity = new Vector3(speed, 0, 0);
+        if(_moving)
+        {
+            rigidbody.linearVelocity = new Vector3(speed, 0, 0);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == 6) //Floor
         {
+            if (!_moving)
+                _moving = true;
             return;
         }
 
